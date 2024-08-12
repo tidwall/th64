@@ -6,10 +6,18 @@ function th64(const Data: Pointer; const Len: NativeUInt; const Seed: UInt64): U
 
 implementation
 
+{$IFOPT Q+}
+{$OVERFLOWCHECKS OFF}
+{$ENDIF}
+
+{$IFOPT R+}
+{$RANGECHECKS OFF}
+{$ENDIF}
+
+
 function th64(const Data: Pointer; const Len: NativeUInt; const Seed: UInt64): UInt64;
 const
   R: UInt64 = $14020A57ACCED8B7;
-
 var
   P1, P2: PByte;
   X, H: UInt64;
